@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 	s.name = 'GDMobileSDK'
-	s.version = '0.1.2'
+	s.version = '0.1.3'
 	s.summary = 'GD SDK for iOS developers'
 	s.homepage = 'https://github.com/guodong10518/GDMobileSDK'
 	s.license = 'MIT'
@@ -10,8 +10,7 @@ Pod::Spec.new do |s|
     s.requires_arc = true
     s.resource = 'GDMobileSDK/GDMobileSDKResource.bundle'
     s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
-    s.source_files = 'GDMobileSDK/Header/GDMobileSDK.h', 'GDMobileSDK/libGDMobileSDK.a'
-    s.public_header_files = 'GDMobileSDK/Header/GDMobileSDK.h'
+    s.vendored_libraries = 'GDMobileSDK/*.a'
 
     s.default_subspec = 'GDUtils', 'GDBasics', 'GDViews', 'GDControllers', 'GDStorages', 'GDNetwork'
 
