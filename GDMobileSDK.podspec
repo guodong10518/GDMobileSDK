@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 	s.name = 'GDMobileSDK'
-	s.version = '0.1.3'
+	s.version = '0.1.4'
 	s.summary = 'GD SDK for iOS developers'
 	s.homepage = 'https://github.com/guodong10518/GDMobileSDK'
 	s.license = 'MIT'
@@ -8,11 +8,23 @@ Pod::Spec.new do |s|
 	s.platform = :ios, '7.0'
 	s.source = { :git => 'https://github.com/guodong10518/GDMobileSDK.git', :tag => s.version }
     s.requires_arc = true
-    s.resource = 'GDMobileSDK/GDMobileSDKResource.bundle'
-    s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
-    s.vendored_libraries = 'GDMobileSDK/*.a'
 
-    s.default_subspec = 'GDUtils', 'GDBasics', 'GDViews', 'GDControllers', 'GDStorages', 'GDNetwork'
+    s.default_subspec = 'GDCore'
+
+    s.subspec 'GDCore' do |core|
+        core.resource = 'GDMobileSDK/GDMobileSDKResource.bundle'
+        core.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC' }
+        core.vendored_libraries = 'GDMobileSDK/libGDMobileSDK.a'
+        core.source_files = 'GDMobileSDK/Header/**/*.h'
+        core.public_header_files = 'GDMobileSDK/Header/**/*.h'
+        core.frameworks = 'UIKit', 'Security', 'MapKit', 'CoreLocation', 'AVFoundation', 'QuartzCore', 'JavaScriptCore'
+        core.dependency 'JSONModel', '~> 1.0.2'
+        core.dependency 'SDWebImage', '~> 3.7.1'
+        core.dependency 'MJRefresh'
+        core.dependency 'MBProgressHUD', '~> 0.9.1'
+        core.dependency 'IQKeyboardManager'
+        core.dependency 'NJKWebViewProgress'
+    end
 
     s.subspec 'GDUtils' do |utils|
         utils.source_files = 'GDMobileSDK/Header/GDUtils/*.h'
