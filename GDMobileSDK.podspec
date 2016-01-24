@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 	s.name = 'GDMobileSDK'
-	s.version = '0.1.5'
+	s.version = '0.1.6'
 	s.summary = 'GD SDK for iOS developers'
 	s.homepage = 'https://github.com/guodong10518/GDMobileSDK'
 	s.license = 'MIT'
@@ -21,4 +21,6 @@ Pod::Spec.new do |s|
     s.dependency 'MBProgressHUD', '~> 0.9.1'
     s.dependency 'IQKeyboardManager'
     s.dependency 'NJKWebViewProgress'
+
+    s.deprecated = true
 end
